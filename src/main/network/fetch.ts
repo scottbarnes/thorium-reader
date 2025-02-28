@@ -59,6 +59,11 @@ const fetchFactory = async () => {
         cookieJar = new CookieJar();
     }
 
+    // Hard code in a cookie
+    const cookie = `beta-access=12345; Path=/`;
+    cookieJar.setCookie(cookie, "https://archive.org");
+
+
     // ignoreError===true because https://github.com/edrlab/thorium-reader/issues/1424
     const _fetch = fetchCookie(nodeFetch as unknown as typeof fetch, cookieJar, true) as unknown as typeof nodeFetch;
     return _fetch;
