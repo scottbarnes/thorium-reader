@@ -194,6 +194,7 @@ export async function httpFetchRawResponse(
         ? options.headers
         : new Headers(options.headers || {});
     (options.headers as Headers).set("user-agent", "readium-desktop");
+    (options.headers as Headers).set("beta-access", "174...wMI");
     (options.headers as Headers).set("accept-language", `${locale},en-US;q=0.7,en;q=0.5`);
 
     // Redirect now handled internally, see https://github.com/valeriangalliat/fetch-cookie/blob/master/CHANGELOG.md#200---2022-02-17
